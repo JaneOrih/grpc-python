@@ -1,0 +1,17 @@
+syntax = "proto3;
+
+package greet;
+// greeting service
+service Greater {
+    //Unary
+    rpc SayHello (HelloRequest) returns (HelloReply);
+
+    //Server Streaming
+    rpc ParrotSayHello (HelloRequest) returns (stream HelloReply);
+
+    //Client Streaming
+    rpc ClientSayHello (stream HelloRequest) returns (HelloReply);
+
+    // Both Streaming
+    rpc InteractingSayHello (stream HelloRequest) returns (stream HelloReply);
+}
